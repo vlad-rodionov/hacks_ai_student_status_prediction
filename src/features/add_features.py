@@ -241,8 +241,8 @@ def add_features(
     )
     clean_data_test = clean_data_test.drop(columns=["Уч_Заведение", "Где_Находится_УЗ"])
 
-    clean_data_train.to_csv(output_path_train)
-    clean_data_test.to_csv(output_path_test)
+    clean_data_train.to_csv(output_path_train, index=False)
+    clean_data_test.to_csv(output_path_test, index=False)
 
 
 if __name__ == "__main__":

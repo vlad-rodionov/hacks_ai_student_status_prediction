@@ -48,7 +48,7 @@ OBJECT_COLS = [
 @click.argument("output_path_train", type=click.Path())
 @click.argument("input_path_test", type=click.Path())
 @click.argument("output_path_test", type=click.Path())
-def clean_data(
+def clean_data_train(
         input_path_train: str,
         output_path_train: str,
         input_path_test: str,
@@ -116,9 +116,12 @@ def clean_data(
     data_train[OBJECT_COLS] = data_train[OBJECT_COLS].astype("object")
     data_test[OBJECT_COLS] = data_test[OBJECT_COLS].astype("object")
 
-    data_train.to_csv(output_path_train)
-    data_test.to_csv(output_path_test)
+    data_train = data_train.drop(columns=['ID', 'Пособие', 'Опекунство'])
+    data_test = data_test.drop(columns=['ID', 'Пособие', 'Опекунство'])
+
+    data_train.to_csv(output_path_train, index=False)
+    data_test.to_csv(output_path_test, index=False)
 
 
 if __name__ == "__main__":
-    clean_data()
+    clean_data_train()
