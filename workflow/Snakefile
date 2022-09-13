@@ -1,0 +1,32 @@
+configfile: "workflow/config.yaml"
+
+rule all:
+    input:
+        "data/raw/train_dataset_train.csv",
+        "data/interim/data_cleaned_train.csv",
+        "data/processed/train.csv",
+        "data/processed/model_submit.csv"
+
+rule clean_data:
+    input:
+        "data/raw/train_dataset_train.csv", "data/raw/test_dataset_test.csv"
+    output:
+        "data/interim/data_cleaned_train.csv", "data/interim/data_cleaned_test.csv"
+    shell:
+        "python -m src.data.clean_data {input} {output}"
+
+rule add_features:
+    input:
+        "data/interim/data_cleaned_train.csv", "data/interim/data_cleaned_test.csv"
+    output:
+        "data/processed/train.csv", "data/processed/test.csv"
+    shell:
+        "python -m src.features.add_features {input} {output}"
+
+rule submit:
+    input:
+        "data/processed/train.csv", "data/processed/test.csv", "data/raw/sample_submission.csv"
+    output:
+        "data/processed/model_submit.csv"
+    shell:
+        "python -m src.models.submit {input} {output}"

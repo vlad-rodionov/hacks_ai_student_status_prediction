@@ -5,14 +5,14 @@ import click
 
 @click.command()
 @click.argument("input_path_train", type=click.Path())
-@click.argument("output_path_train", type=click.Path())
 @click.argument("input_path_test", type=click.Path())
+@click.argument("output_path_train", type=click.Path())
 @click.argument("output_path_test", type=click.Path())
 def add_features(
     input_path_train: str,
-    output_path_train: str,
     input_path_test: str,
-    output_path_test: str,
+    output_path_train: str,
+    output_path_test: str
 ):
     """
     :param input_path_train: Path to read cleaned Train DataFrame
