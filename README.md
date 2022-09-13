@@ -32,3 +32,7 @@
 С предварительным анализом можно ознакомиться [здесь](https://github.com/vlad-rodionov/hacks_ai_student_status_prediction/blob/main/Notebooks/EDA_student.ipynb)
 
 ## Features
+
+Важность фичей, полученная встроенными методами Catboost:
+
+![feature_importance](https://github.com/vlad-rodionov/hacks_ai_student_status_prediction/blob/main/reports/feature_importance.png)
