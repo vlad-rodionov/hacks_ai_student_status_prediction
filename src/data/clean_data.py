@@ -45,13 +45,13 @@ OBJECT_COLS = [
 
 @click.command()
 @click.argument("input_path_train", type=click.Path())
-@click.argument("output_path_train", type=click.Path())
 @click.argument("input_path_test", type=click.Path())
+@click.argument("output_path_train", type=click.Path())
 @click.argument("output_path_test", type=click.Path())
 def clean_data_train(
         input_path_train: str,
-        output_path_train: str,
         input_path_test: str,
+        output_path_train: str,
         output_path_test: str,
 ):
     """
