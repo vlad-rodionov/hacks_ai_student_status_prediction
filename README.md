@@ -36,3 +36,9 @@
 Важность фичей, полученная встроенными методами Catboost:
 
 ![feature_importance](https://github.com/vlad-rodionov/hacks_ai_student_status_prediction/blob/main/reports/feature_importance.png)
+
+Важность фичей, полученная с помощью библиотеки SHAP:
+
+![SHAP_values](https://github.com/vlad-rodionov/hacks_ai_student_status_prediction/blob/main/reports/SHAP.png)
+
+Заметим, что половина из ТОП-10 фич - это фичи, которые были сделаны "руками"
